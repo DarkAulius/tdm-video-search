@@ -1,0 +1,12 @@
+# Numero di clip per categoria (genere YouTube di origine).
+PREFIX ma:   <http://www.w3.org/ns/ma-ont#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT ?categoria (COUNT(?video) AS ?clip)
+WHERE {
+  ?video a ma:MediaResource ;
+         ma:hasGenre ?genere .
+  ?genere rdfs:label ?categoria .
+}
+GROUP BY ?categoria
+ORDER BY DESC(?clip)

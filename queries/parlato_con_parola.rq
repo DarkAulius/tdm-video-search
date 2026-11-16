@@ -1,0 +1,16 @@
+# Frammenti di parlato che contengono la parola "cook", con l'URI Media Fragments
+# da aprire direttamente nel punto giusto del video.
+PREFIX ma:  <http://www.w3.org/ns/ma-ont#>
+PREFIX tdm: <http://example.org/tdm/ontology#>
+
+SELECT ?frammento ?inizio ?fine ?testo
+WHERE {
+  ?frammento a ma:MediaFragment ;
+             tdm:fragmentKind "speech" ;
+             tdm:startTime ?inizio ;
+             tdm:endTime ?fine ;
+             tdm:text ?testo .
+  FILTER (CONTAINS(LCASE(STR(?testo)), "cook"))
+}
+ORDER BY ?frammento
+LIMIT 20

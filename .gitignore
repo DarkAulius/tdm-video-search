@@ -1,0 +1,16 @@
+# Dati scaricati e risultati intermedi (si rigenerano con main.py)
+data/
+cache/
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+.pytest_cache/
+
+# macOS
+.DS_Store
+
+# Log delle esecuzioni e risultati della prova veloce
+logs/
+results_prova/

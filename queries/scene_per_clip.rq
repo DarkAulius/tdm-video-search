@@ -1,0 +1,14 @@
+# Clip con più scene rilevate dal confronto degli istogrammi HSV
+# e distanza media che ha aperto le scene.
+PREFIX ma:  <http://www.w3.org/ns/ma-ont#>
+PREFIX tdm: <http://example.org/tdm/ontology#>
+
+SELECT ?video (COUNT(?scena) AS ?scene) (AVG(?distanza) AS ?distanza_media)
+WHERE {
+  ?scena ma:isFragmentOf ?video ;
+         tdm:fragmentKind "scene" ;
+         tdm:hsvDistance ?distanza .
+}
+GROUP BY ?video
+ORDER BY DESC(?scene)
+LIMIT 10

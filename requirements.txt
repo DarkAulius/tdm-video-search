@@ -1,0 +1,26 @@
+# Python 3.10 - 3.12 consigliato (ambiente virtuale dedicato)
+
+# Elaborazione multimediale
+numpy>=1.26
+av>=12.0                       # binding Python di FFmpeg: decodifica video, fotogrammi I, audio
+pillow>=10.0                   # richiesto dal processore di immagini di CLIP
+# Niente OpenCV: include una propria copia di FFmpeg che su macOS va in conflitto con quella di PyAV.
+# Conversione HSV e istogrammi sono scritti in NumPy (tdm/keyframes.py).
+
+# Modelli pre-addestrati
+torch>=2.2
+transformers>=4.44,<5          # CLIP (API get_image_features stabile nella serie 4.x)
+sentence-transformers>=3.0     # embedding delle trascrizioni
+openai-whisper>=20240930       # riconoscimento del parlato
+
+# Dati e knowledge graph
+datasets>=2.19
+huggingface_hub>=0.23
+fsspec>=2024.2               # lettura a pezzi (HTTP Range) dell'archivio dei video
+aiohttp>=3.9
+requests>=2.31
+rdflib>=7.0
+truststore>=0.9               # verifica HTTPS con i certificati del sistema operativo
+
+# Test
+pytest>=8
